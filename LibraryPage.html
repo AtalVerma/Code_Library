@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Code Snippet Library - Browse</title>
+    <!-- <link rel="stylesheet" href="css/home.css"> -->
+    <link rel="stylesheet" href="css/libraryPage.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="container">
+            <a href="home.html" class="logo">📚 CodeLib</a>
+            <ul>
+                <li><a href="home.html" class="nav-link">Home</a></li>
+                <li><a href="LibraryPage.html" class="nav-link active">Library</a></li>
+                <li><a href="snippetPage.html" class="nav-link" id="addLink">Add Snippet</a></li>
+                <li><a href="loginPage.html" class="nav-link" id="loginLink">Login</a></li>
+                <li id="userProfileContainer" class="hidden">
+                    <div class="user-profile">
+                        <img src="" alt="User" class="user-avatar" id="userAvatar">
+                        <span class="user-name" id="userName"></span>
+                    </div>
+                </li>
+                <li><button class="btn-logout hidden" id="logoutBtn" onclick="logout()">Logout</button></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- LIBRARY PAGE -->
+    <div id="libraryPage" class="page" style="display: block;">
+        <div class="container">
+            <h1 style="color: white; text-align: center; margin-bottom: 2rem;">Code Snippet Library</h1>
+            
+            <div class="search-bar">
+                <input type="text" id="searchInput" placeholder="🔍 Search snippets..." oninput="filterSnippets()">
+                <select id="languageFilter" onchange="filterSnippets()">
+                    <option value="all">All Languages</option>
+                    <option value="JavaScript">JavaScript</option>
+                    <option value="Python">Python</option>
+                    <option value="C">C</option>
+                    <option value="C++">C++</option>
+                    <option value="HTML/CSS">HTML/CSS</option>
+                </select>
+            </div>
+
+            <div class="snippets-grid" id="snippetsGrid">
+                <!-- Snippets will be loaded here -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 Code Snippet Library. All rights reserved. Built with ❤️ for developers.</p>
+    </footer>
+
+    <script src="scripts/Auth.js"></script>
+    <script src="scripts/snippets.js"></script>
+    <script>
+        // Load snippets on page load
+        window.addEventListener('DOMContentLoaded', function() {
+            loadSnippets();
+        });
+    </script>
+</body>
+</html>

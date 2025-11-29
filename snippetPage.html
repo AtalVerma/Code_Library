@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Code Snippet Library - Add Snippet</title>
+    <link rel="stylesheet" href="css/home.css">
+    <link rel="stylesheet" href="css/snippet.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="container">
+            <a href="home.html" class="logo">📚 CodeLib</a>
+            <ul>
+                <li><a href="home.html" class="nav-link">Home</a></li>
+                <li><a href="LibraryPage.html" class="nav-link">Library</a></li>
+                <li><a href="snippetPage.html" class="nav-link active" id="addLink">Add Snippet</a></li>
+                <li><a href="loginPage.html" class="nav-link" id="loginLink">Login</a></li>
+                <li id="userProfileContainer" class="hidden">
+                    <div class="user-profile">
+                        <img src="" alt="User" class="user-avatar" id="userAvatar">
+                        <span class="user-name" id="userName"></span>
+                    </div>
+                </li>
+                <li><button class="btn-logout hidden" id="logoutBtn" onclick="logout()">Logout</button></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- ADD SNIPPET PAGE -->
+    <div id="addPage" class="page" style="display: block;">
+        <div class="form-container">
+            <h2>Add New Snippet</h2>
+            <form onsubmit="addSnippet(event)">
+                <div class="form-group">
+                    <label>Snippet Title</label>
+                    <input type="text" id="snippetTitle" required placeholder="e.g., Array Sorting Function">
+                </div>
+                <div class="form-group">
+                    <label>Programming Language</label>
+                    <select id="snippetLanguage" required>
+                        <option value="">Select Language</option>
+                        <option value="JavaScript">JavaScript</option>
+                        <option value="Python">Python</option>
+                        <option value="C">C</option>
+                        <option value="C++">C++</option>
+                        <option value="HTML/CSS">HTML/CSS</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Description</label>
+                    <input type="text" id="snippetDesc" required placeholder="Brief description of what this code does">
+                </div>
+                <div class="form-group">
+                    <label>Code</label>
+                    <textarea id="snippetCode" required placeholder="Paste your code here..."></textarea>
+                </div>
+                <button type="submit" class="btn-primary">Add Snippet</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 Code Snippet Library. All rights reserved. Built with ❤️ for developers.</p>
+    </footer>
+
+    <script src="scripts/Auth.js"></script>
+    <script src="scripts/snippets.js"></script>
+    <script>
+        // Check if user is logged in
+        window.addEventListener('DOMContentLoaded', function() {
+            if (localStorage.getItem('isLoggedIn') !== 'true') {
+                alert('Please login to add snippets!');
+                window.location.href = 'loginPage.html';
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Code Snippet Library - Login</title>
+    <link rel="stylesheet" href="css/home.css">
+    <link rel="stylesheet" href="css/LoginPage.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="container">
+            <a href="home.html" class="logo">📚 CodeLib</a>
+            <ul>
+                <li><a href="home.html" class="nav-link">Home</a></li>
+                <li><a href="LibraryPage.html" class="nav-link">Library</a></li>
+                <li><a href="snippetPage.html" class="nav-link" id="addLink">Add Snippet</a></li>
+                <li><a href="loginPage.html" class="nav-link active" id="loginLink">Login</a></li>
+                <li id="userProfileContainer" class="hidden">
+                    <div class="user-profile">
+                        <img src="" alt="User" class="user-avatar" id="userAvatar">
+                        <span class="user-name" id="userName"></span>
+                    </div>
+                </li>
+                <li><button class="btn-logout hidden" id="logoutBtn" onclick="logout()">Logout</button></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- LOGIN PAGE -->
+    <div id="loginPage" class="page" style="display: block;">
+        <div class="form-container">
+            <h2 id="authTitle">Login to CodeLib</h2>
+            <form onsubmit="login(event)" id="loginForm">
+                <div class="form-group">
+                    <label>Email</label>
+                    <input type="email" id="loginEmail" required placeholder="your@email.com">
+                </div>
+                <div class="form-group">
+                    <label>Password</label>
+                    <input type="password" id="loginPassword" required placeholder="••••••••">
+                </div>
+                <button type="submit" class="btn-primary">Login</button>
+            </form>
+
+            <!-- Sign Up Form -->
+            <form onsubmit="signup(event)" id="signupForm" class="hidden">
+                <div class="form-group">
+                    <label>Full Name</label>
+                    <input type="text" id="signupName" required placeholder="John Doe">
+                </div>
+                <div class="form-group">
+                    <label>Email</label>
+                    <input type="email" id="signupEmail" required placeholder="your@email.com">
+                </div>
+                <div class="form-group">
+                    <label>Password</label>
+                    <input type="password" id="signupPassword" required placeholder="••••••••">
+                </div>
+                <div class="form-group">
+                    <label>Confirm Password</label>
+                    <input type="password" id="signupConfirmPassword" required placeholder="••••••••">
+                </div>
+                <div class="form-group">
+                    <label>Profile Picture (Optional)</label>
+                    <input type="file" id="avatarUpload" accept="image/*" onchange="previewAvatar(event)">
+                    <img id="avatarPreview" style="width: 100px; height: 100px; border-radius: 50%; margin-top: 10px; display: none; object-fit: cover; border: 3px solid #667eea;">
+                </div>
+                <button type="submit" class="btn-primary">Sign Up</button>
+            </form>
+
+            <!-- Forgot Password Form -->
+            <form onsubmit="forgotPassword(event)" id="forgotForm" class="hidden">
+                <div class="form-group">
+                    <label>Email</label>
+                    <input type="email" id="forgotEmail" required placeholder="your@email.com">
+                </div>
+                <p style="color: #666; font-size: 0.9rem; margin-bottom: 1rem;">
+                    We'll send you a password reset link to your email.
+                </p>
+                <button type="submit" class="btn-primary">Send Reset Link</button>
+            </form>
+
+            <div class="form-links">
+                <a href="#" id="signupLink" onclick="showSignupForm()">Sign Up</a>
+                <a href="#" id="forgotLink" onclick="showForgotForm()">Forgot Password?</a>
+                <a href="#" id="backToLoginLink" onclick="showLoginForm()" class="hidden">Back to Login</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 Code Snippet Library. All rights reserved. Built with ❤️ for developers.</p>
+    </footer>
+
+    <script src="scripts/Auth.js"></script>
+    <script src="scripts/Login.js"></script>
+</body>
+</html>

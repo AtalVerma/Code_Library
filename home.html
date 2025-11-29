@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Code Snippet Library - Home</title>
+    <link rel="stylesheet" href="css/home.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="container">
+            <a href="#" class="logo" onclick="showPage('home')">📚 CodeLib</a>
+            <ul>
+                <li><a href="home.html" class="nav-link active">Home</a></li>
+                <li><a href="LibraryPage.html" class="nav-link">Library</a></li>
+                <li><a href="snippetPage.html" class="nav-link" id="addLink">Add Snippet</a></li>
+                <li><a href="loginPage.html" class="nav-link" id="loginLink">Login</a></li>
+                <li id="userProfileContainer" class="hidden">
+                    <div class="user-profile">
+                        <img src="" alt="User" class="user-avatar" id="userAvatar">
+                        <span class="user-name" id="userName"></span>
+                    </div>
+                </li>
+                <li><button class="btn-logout hidden" id="logoutBtn" onclick="logout()">Logout</button></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- HOME PAGE -->
+    <div id="homePage" class="page" style="display: block;">
+        <div class="hero">
+            <h1>Welcome to Code Snippet Library</h1>
+            <p>Your personal collection of reusable code snippets for faster development</p>
+            <a href="LibraryPage.html" class="hero-btn">Explore Snippets</a>
+        </div>
+
+        <div class="container">
+            <div class="features">
+                <div class="feature-card">
+                    <h3>🔍 Easy Search</h3>
+                    <p>Quickly find the snippet you need with powerful search and filtering options.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>💾 Save & Organize</h3>
+                    <p>Store all your favorite code snippets in one place, organized by language.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>📋 Copy & Use</h3>
+                    <p>One-click copy functionality to use snippets instantly in your projects.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>🚀 Share Knowledge</h3>
+                    <p>Contribute to the community by adding your own useful code snippets.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 Code Snippet Library. All rights reserved. Built with ❤️ for developers.</p>
+    </footer>
+
+    <script src="scripts/Auth.js"></script>
+</body>
+</html>
