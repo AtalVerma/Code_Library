@@ -1,46 +1,43 @@
-Web Development Final Project
-📌 Project Title
 
-Code Library – Code Snippet Manager
+# Web Development Final Project
 
-👤 Student Information
+## Project Title
 
-Name: Atal vishwas verma  ,
-College ID: 2024KUEC2026  ,
-Batch: C1
+## 👤 Student Information
+**Name:** Atal vishwash verma
+**College ID :** 2024KUEC2026  
+**Batch:** C1
 
-📝 Project Description
+---
 
-This project allows users to sign up, log in, and securely manage their personal code snippets.
-It’s designed for developers who want quick access to their frequently used code, without scrolling through chaos.
+## 📝 Project Description
+Code Snippet Library is a simple and efficient platform designed to store and manage code snippets in one place. Instead of searching through old files or remembering everything, users can add code snippets with titles, descriptions, and language tags.
 
-🔹 Main Features
+The application includes:
 
-New users must Sign Up before access
+Search bar to instantly find snippets by keywords
 
-Login authentication for secure access
+Language filter to sort snippets (JS, Python, C, C++, HTML/CSS, etc.)
 
-Add, edit code snippets
+Responsive layout that works on laptop and mobile
 
-Search & filter snippets by programming language
+All snippets are saved using LocalStorage, so the data stays even after refreshing the page — no database required.
 
-LocalStorage used for storing user data + snippets
+This project is ideal for students and developers who want a personal coding reference library.
 
-Simple and responsive UI
+---
 
-So yeah, you need an account before you get to touch the code vault. 🔐
+## 🔐 Login Details (If Required)
 
-🔐 Sign Up / Login Details
+for edit ,add and delete snipppet
+**Username / Email:** demo@gmail.com
 
-Demo Credentials for Testing:
+**Password:** 12345
 
-Email: demo@gmail.com
 
-Password: 12345
 
-(First Sign Up → Then Login → Access Snippet Dashboard)
+---
 
-🚀 Deployment Link (Mandatory)
-
-Live Project Link:
+## 🚀 Deployment Link (Mandatory)
+Live Project Link:  
 https://atalverma.github.io/Code_Library/
