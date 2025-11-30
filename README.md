@@ -4,7 +4,7 @@
 ## Code Library
 
 ## 👤 Student Information
-**Name:** Atal vishwash verma
+**Name:** Atal vishwas verma
 **College ID :** 2024KUEC2026  
 **Batch:** C1
 
