@@ -5,8 +5,8 @@ Code Library – Code Snippet Manager
 
 👤 Student Information
 
-Name: Atal vishwas verma
-College ID: 2024KUEC2026
+Name: Atal vishwas verma  ,
+College ID: 2024KUEC2026  ,
 Batch: C1
 
 📝 Project Description
