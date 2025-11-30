@@ -97,3 +97,30 @@
     cursor: not-allowed;
 }
 
+#submitBtn {
+  background: #4f46e5;       /* Purple vibe */
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+#submitBtn:hover {
+  background: #4338ca;       /* Darker purple on hover */
+  transform: translateY(-2px); /* Slight lift */
+}
+
+#submitBtn:active {
+  transform: translateY(0);    /* No lift when pressed */
+  background: #3730a3;
+}
+
+#submitBtn.btn-primary {
+  /* extra style if you also rely on the class */
+}
+
+
