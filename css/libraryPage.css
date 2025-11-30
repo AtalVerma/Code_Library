@@ -332,6 +332,8 @@ footer {
     align-items: center;
     font-size: 0.85rem;
     color: #999;
+    flex-wrap: wrap;        /* NEW */
+    gap: 0.5rem;            /* NEW */
 }
 
 .copy-btn {
@@ -383,4 +385,69 @@ footer {
         flex-direction: column;
         gap: 0.5rem;
     }
+}
+
+.snippet-actions {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+}
+
+/* PURPLE - Copy Button */
+.copy-btn {
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    color: white;
+    
+}
+
+/* PINK - Edit Button */
+.edit-btn {
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    color: white;
+    border: none;
+    padding: 0.6rem 1.2rem;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    font-size: 0.85rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+.edit-btn:hover {
+    background: linear-gradient(135deg, #5568d3, #663a8e);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
+}
+
+/* RED - Delete Button */
+.delete-btn {
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    color: white;
+    border: none;
+    padding: 0.6rem 1.2rem;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    font-size: 0.85rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+.delete-btn:hover {
+    background: linear-gradient(135deg, #5568d3, #663a8e);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
+}
+
+.edit-btn:active,
+.delete-btn:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
 }

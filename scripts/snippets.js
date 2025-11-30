@@ -125,6 +125,8 @@ function loadSnippets() {
             <div class="snippet-footer">
                 <span>📅 ${snippet.date}</span>
                 <button class="copy-btn" onclick="copyCode(${snippet.id})">📋 Copy</button>
+                <button class="edit-btn" onclick="editSnippet(${snippet.id})">✏️ Edit</button>
+                <button class="delete-btn" onclick="deleteSnippet(${snippet.id})">🗑️ Delete</button>
             </div>
         </div>
     `).join('');
@@ -172,4 +174,107 @@ function escapeHtml(text) {
     const div = document.createElement('div');
     div.textContent = text;
     return div.innerHTML;
+}
+
+// Delete snippet
+function deleteSnippet(id) {
+    if (confirm('Are you sure you want to delete this snippet?')) {
+        snippets = snippets.filter(snippet => snippet.id !== id);
+        saveSnippets();
+        loadSnippets();
+        alert('Snippet deleted successfully!');
+    }
+}
+
+// Edit snippet - Redirect to snippet page with edit parameter
+function editSnippet(id) {
+    const snippet = snippets.find(s => s.id === id);
+    if (!snippet) {
+        alert('Snippet not found!');
+        return;
+    }
+    
+    // Redirect to snippet page with edit mode
+    window.location.href = 'snippetPage.html?edit=' + id;
+}
+
+// Load snippet data for editing (called from snippetPage.html)
+function loadSnippetForEdit(id) {
+    // Make sure snippets are initialized
+    if (snippets.length === 0) {
+        initializeSnippets();
+    }
+    
+    const snippet = snippets.find(s => s.id === id);
+    
+    if (!snippet) {
+        alert('Snippet not found!');
+        window.location.href = 'LibraryPage.html';
+        return;
+    }
+    
+    // Update form title and button
+    const formTitle = document.getElementById('formTitle');
+    const submitBtn = document.getElementById('submitBtn');
+    const cancelBtn = document.getElementById('cancelBtn');
+    
+    if (formTitle) formTitle.textContent = 'Edit Snippet';
+    if (submitBtn) submitBtn.textContent = 'Update Snippet';
+    if (cancelBtn) cancelBtn.style.display = 'inline-block';
+    
+    // Fill form with snippet data
+    document.getElementById('snippetTitle').value = snippet.title;
+    document.getElementById('snippetLanguage').value = snippet.language;
+    document.getElementById('snippetDesc').value = snippet.description;
+    document.getElementById('snippetCode').value = snippet.code;
+}
+
+// Update existing snippet
+function updateSnippet(id) {
+    // Make sure snippets are initialized
+    if (snippets.length === 0) {
+        initializeSnippets();
+    }
+    
+    const snippetIndex = snippets.findIndex(s => s.id === id);
+    
+    if (snippetIndex === -1) {
+        alert('Snippet not found!');
+        return;
+    }
+    
+    // Update snippet with new values
+    snippets[snippetIndex] = {
+        id: id,
+        title: document.getElementById('snippetTitle').value,
+        language: document.getElementById('snippetLanguage').value,
+        description: document.getElementById('snippetDesc').value,
+        code: document.getElementById('snippetCode').value,
+        date: snippets[snippetIndex].date  // Keep original date
+    };
+    
+    saveSnippets();
+    alert('Snippet updated successfully!');
+    window.location.href = 'LibraryPage.html';
+}
+
+// Handle form submission (both add and edit)
+function handleSnippetSubmit(event) {
+    event.preventDefault();
+    
+    const form = event.target;
+    const editId = form.dataset.editId;
+    
+    if (editId) {
+        updateSnippet(parseInt(editId));  // Edit mode
+    } else {
+        addSnippet(event);                 // Add mode
+    }
+}
+
+// Cancel edit and go back
+function cancelEdit() {
+    if (confirm('Are you sure you want to cancel? Any changes will be lost.')) {
+        window.location.href = 'LibraryPage.html';
+    }
 }
